@@ -1,9 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Us from './Us';
+import BigDay from './BigDay';
+import { Router, Route, browserHistory } from 'react-router'
 import './index.css';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
+
+ReactDOM.render((
+  <Router history={browserHistory}>
+    <Route path="/" component={Us}/>
+    <Route path="us" component={Us}/>
+    <Route path="big-day" component={BigDay}/>
+  </Router>
+), document.getElementById('root'));
