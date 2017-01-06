@@ -3,11 +3,12 @@ import { Grid, Row, Col, Image, PageHeader } from 'react-bootstrap';
 import SiteBar from './SiteBar';
 import us from './assets/private/us.jpg';
 
+import './Us.css';
+
 class Us extends Component {
   render() {
     return (
       <div>
-        <SiteBar/>
           <Grid >
             <Row>
               <Col>
@@ -16,7 +17,7 @@ class Us extends Component {
             </Row>
             <Row>
               <Col>
-                <PageHeader>Anne et Pierre <small>L'histoire commence le 6 juin 2014...</small></PageHeader>
+                <PageHeader className="Us-header">L'histoire commence le 6 juin 2014...</PageHeader>
                 Blalbalblablablalbl
               </Col>
             </Row>

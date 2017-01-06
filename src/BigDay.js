@@ -1,45 +1,58 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col, PageHeader, FormGroup, FormControl, ControlLabel, Panel } from 'react-bootstrap';
+import { Grid, Row, Col, PageHeader, FormGroup, FormControl, ControlLabel, Panel, Media, Label } from 'react-bootstrap';
 import SiteBar from './SiteBar';
 import WeddingMap from './WeddingMap';
+import church from './assets/private/church.png';
+import cityhall from './assets/private/cityhall.png';
+import lascanals from './assets/private/lascanals.jpg';
+import brunch from './assets/private/brunch.png';
 
 class BigDay extends Component {
   render() {
     return (
       <div>
-        <SiteBar/>
           <Grid >
             <Row>
-              <PageHeader>La Date</PageHeader>
-              Le 19 août 2017 à **
+              <PageHeader>Programme de la journée</PageHeader>
+              <Media>
+                <Media.Left>
+                  <img width={128} height={128} src={church} alt="Mairie Goutrens"/>
+                </Media.Left>
+                <Media.Body>
+                  <Media.Heading>19 août 2017 - ??h?? - **</Media.Heading>
+                    Rajouter blabla pratique + adresse
+                </Media.Body>
+              </Media>
+              <Media>
+                <Media.Left>
+                  <img width={128} height={128} src={cityhall} alt="Eglise Goutrens"/>
+                </Media.Left>
+                <Media.Body>
+                  <Media.Heading>19 août 2017 - 15h00 - **</Media.Heading>
+                    Rajouter blabla pratique + adresse
+                </Media.Body>
+              </Media>
+              <Media>
+                <Media.Left>
+                  <img width={128} height={128} src={lascanals} alt="Las Canals"/>
+                </Media.Left>
+                <Media.Body>
+                  <Media.Heading>19 août 2017 - ?? - **</Media.Heading>
+                    Rajouter blabla pratique + adresse
+                </Media.Body>
+              </Media>
+              <Media>
+                <Media.Left>
+                  <img width={128} height={128} src={brunch} alt="Brunch"/>
+                </Media.Left>
+                <Media.Body>
+                  <Media.Heading>20 août 2017 - ?? - **</Media.Heading>
+                    Rajouter blabla pratique + adresse
+                </Media.Body>
+              </Media>
             </Row>
             <Row>
-              <PageHeader>Les lieux</PageHeader>
-              <ControlLabel>Choisir un lieu pour plus de détails</ControlLabel>
-            </Row>
-            <Row>
-              <Col sm={6}>
-                  <FormGroup controlId="formControlsSelect">
-                    <FormControl componentClass="select" placeholder="select" onChange={this.handleChange}>
-                      <option value="all">Tous</option>
-                      <option value="ceremonies">Les Cérémonies</option>
-                      <option value="party">La Soirée</option>
-                      <option value="brunch">Le Brunch</option>
-                    </FormControl>
-                  </FormGroup>
-              </Col>
-              <Col sm={6}>
-                <Panel defaultExpanded header="Les Cérémonies">
-                  <address>
-                    <strong>**</strong><br/>
-                    **<br/>
-                    **<br/>
-                    <abbr title="Téléphone">Tél:</abbr> **
-                  </address>
-                </Panel>
-              </Col>
-            </Row>
-            <Row>
+            <PageHeader>Les lieux</PageHeader>
               <Col>
                 <div style={{height: "450px"}}>
                 <WeddingMap/>
@@ -47,7 +60,6 @@ class BigDay extends Component {
               </Col>
             </Row>
           </Grid>
-
       </div>
     );
   }

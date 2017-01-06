@@ -7,7 +7,7 @@ import WeddingPlace from './WeddingLocator.js';
 class WeddingMap extends Component {
 
   static defaultProps = {
-      center: {lat: 44.446213, lng: 2.409792}
+      center: {lat: 0, lng: 0}
     };
 
   // investigate this

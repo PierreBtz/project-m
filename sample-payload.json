@@ -1,0 +1,23 @@
+{
+    "primaryAdult": {
+      "firstName": "tata",
+      "lastName": "toto",
+      "email": "tata@toto"
+    },
+    "present": false,
+    "secondaryAdult": {
+      "firstName": "foo",
+      "lastName": "bar",
+      "email": "foo@bar"
+    },
+    "children": [
+        {
+            "firstName": "co",
+            "lastName": "co"
+        },
+        {
+            "firstName": "to",
+            "lastName": "to"
+        }
+    ]
+  }
