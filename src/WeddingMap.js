@@ -4,7 +4,7 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import GoogleMap from 'google-map-react';
 import WeddingPlace from './WeddingLocator.js';
 
-import secret from './secret-config.json';
+import secret from './private/secret-config.json';
 
 class WeddingMap extends Component {
 

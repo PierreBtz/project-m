@@ -12,8 +12,6 @@ build
 .env
 npm-debug.log
 
-# private assets
+# private parts
 src/assets/private
-
-# credentials
-src/secret-config.json
+src/private
