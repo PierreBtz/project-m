@@ -4,6 +4,8 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import GoogleMap from 'google-map-react';
 import WeddingPlace from './WeddingLocator.js';
 
+import secret from './secret-config.json';
+
 class WeddingMap extends Component {
 
   static defaultProps = {
@@ -16,7 +18,7 @@ class WeddingMap extends Component {
   render() {
     return (
        <GoogleMap
-        bootstrapURLKeys={{key: "AIzaSyDhOkVSbnmwXGvVV6LUoIhaw4laJBNdWBw"}}
+        bootstrapURLKeys={secret}
         defaultCenter={this.props.center}
         defaultZoom={12}>
         <WeddingPlace lat={0} lng={0} text={'Soirée'} />

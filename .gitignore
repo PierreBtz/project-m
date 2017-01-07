@@ -14,3 +14,6 @@ npm-debug.log
 
 # private assets
 src/assets/private
+
+# credentials
+src/secret-config.json
