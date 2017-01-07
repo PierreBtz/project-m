@@ -5,11 +5,12 @@ import GoogleMap from 'google-map-react';
 import WeddingPlace from './WeddingLocator.js';
 
 import secret from './private/secret-config.json';
+import location from './private/location.json';
 
 class WeddingMap extends Component {
 
   static defaultProps = {
-      center: {lat: 0, lng: 0}
+      center: {lat: location.center.lat, lng: location.center.lng}
     };
 
   // investigate this
@@ -21,9 +22,9 @@ class WeddingMap extends Component {
         bootstrapURLKeys={secret}
         defaultCenter={this.props.center}
         defaultZoom={12}>
-        <WeddingPlace lat={0} lng={0} text={'Soirée'} />
-        <WeddingPlace lat={0} lng={0} text={'Cérémonies'}  />
-        <WeddingPlace lat={0} lng={0} text={'Brunch'}  />
+        <WeddingPlace lat={location.party.lat} lng={location.party.lng} text={'Soirée'} />
+        <WeddingPlace lat={location.ceremony.lat} lng={location.ceremony.lng} text={'Cérémonies'}  />
+        <WeddingPlace lat={location.brunch.lat} lng={location.brunch.lng} text={'Brunch'}  />
       </GoogleMap>
     );
   }
