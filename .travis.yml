@@ -16,3 +16,7 @@ before_install:
   -in location.json.enc -out src/private/location.json -d
 - openssl aes-256-cbc -K $encrypted_2e4c8f514f7d_key -iv $encrypted_2e4c8f514f7d_iv
   -in secret-config.json.enc -out src/private/secret-config.json -d
+
+install:
+- npm install
+- npm run build
