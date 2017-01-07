@@ -1,3 +1,18 @@
 language: node_js
 node_js:
-  - 6
+- 6
+before_install:
+- openssl aes-256-cbc -K $encrypted_2e4c8f514f7d_key -iv $encrypted_2e4c8f514f7d_iv
+  -in us.jpg.enc -out src/assets/private/us.jpg -d
+- openssl aes-256-cbc -K $encrypted_2e4c8f514f7d_key -iv $encrypted_2e4c8f514f7d_iv
+  -in lascanals.jpg.enc -out src/assets/private/lascanals.jpg -d
+- openssl aes-256-cbc -K $encrypted_2e4c8f514f7d_key -iv $encrypted_2e4c8f514f7d_iv
+  -in cityhall.png.enc -out src/assets/private/cityhall.png -d
+- openssl aes-256-cbc -K $encrypted_2e4c8f514f7d_key -iv $encrypted_2e4c8f514f7d_iv
+  -in church.png.enc -out src/assets/private/church.png -d
+- openssl aes-256-cbc -K $encrypted_2e4c8f514f7d_key -iv $encrypted_2e4c8f514f7d_iv
+  -in brunch.png.enc -out src/assets/private/brunch.png -d
+- openssl aes-256-cbc -K $encrypted_2e4c8f514f7d_key -iv $encrypted_2e4c8f514f7d_iv
+  -in location.json.enc -out src/private/location.json -d
+- openssl aes-256-cbc -K $encrypted_2e4c8f514f7d_key -iv $encrypted_2e4c8f514f7d_iv
+  -in secret-config.json.enc -out src/private/secret-config.json -d
