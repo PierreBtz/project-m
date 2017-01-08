@@ -5,7 +5,7 @@
     "/**": "index.html"
   },
   "proxies": {
-    "/rsvp/": {
+    "/api/rsvp/": {
       "origin": "https://project-m-backend-deployment.herokuapp.com/rsvp"
     }
   }

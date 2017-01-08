@@ -35,7 +35,7 @@ class Rsvp extends Component {
     sendData(formData) {
         const xmlhttp = new XMLHttpRequest();
         // need to make this async
-        xmlhttp.open("POST", '/rsvp/create', true);
+        xmlhttp.open("POST", '/api/rsvp/create', true);
         xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xmlhttp.send(this.buildUrl(formData));
     }
