@@ -18,7 +18,10 @@ before_install:
   -in src/secrets/location.json.enc -out src/private/location.json -d
 - openssl aes-256-cbc -K $encrypted_2e4c8f514f7d_key -iv $encrypted_2e4c8f514f7d_iv
   -in src/secrets/secret-config.json.enc -out src/private/secret-config.json -d
-
 install:
 - npm install
 - npm run build
+deploy:
+  provider: heroku
+  api_key:
+    secure: CHCNeT+Wgm/WSPxGJ/rDjjJL0mXvBrlT1aXle2cIYLegjaEdOmwsgTK4QV2PIk1wRYdpbsh5cojBOhyH1HMW4w3GRyjQ24jLn2rNQv3gbu3lMQ6mTQL5bwVSdR/im/Z5WoHE7tNUujSvGvKpRR4pzrEvyIdYtbknbS1a3RuS3bK8eR3M7Es3GUtM9j57A4qFOPkhQmN5WefFy73VtQl3QWx0Mcz3O7m3mdOul1fB5HhfDea+HD2NlX3bS0k6N27SWU81WlR1b13oAh3Qnw5y2oEIqAjBtRScwZ7qF0Lfx27gahyEd8OyxMd/ZsdQfUheUQvsJHTuZMm4m8AFcPk5xTcd90lZZ/cG8A4WbaFyOwr2778A5XoYHuNNU/0uzrmJX0HvZ6362hQEUBwsJPXJNnH5lkilrLPkRWMWClyGjhszASDgUN9n/AUcqN+TCLOYzbVx66/qDzrsKtF/5Zk+Sgz5BfNOAVe4lReUPV225Ew/+US6n3SdbyjomB1IOTthVcqQZhecvbPKhbz4at25O9UlTPt1fVVqVQB4lgRmWFHi/Etc5L+s7HqQ2wvIAC7MzmuPPPwbrPs2qFOhKyTDVrc6Ay+GXn0kwWx+6/TJNJeaRHoGikapbDicvabXbLRI6qXnJTWCPeZ6M9+ZiBz4v4nyJHgJEGzoghfQvtq169Y=
