@@ -37,7 +37,6 @@ class Rsvp extends Component {
         // need to make this async
         xmlhttp.open("POST", 'http://localhost:8080/rsvp/create', true);
         xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        console.log(this.buildUrl(formData));
         xmlhttp.send(this.buildUrl(formData));
     }
 
