@@ -4,7 +4,7 @@ import Us from './Us';
 import BigDay from './BigDay';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import './index.css';
-import SiteBar from './SiteBar';
+import App from './App';
 import Rsvp from './Rsvp';
 
 import './bootstrap/css/bootstrap.css';
@@ -13,7 +13,7 @@ import './bootstrap/css/bootstrap-theme.css';
 
 ReactDOM.render((
   <Router history={browserHistory}>
-    <Route path="/" component={SiteBar}>
+    <Route path="/" component={App}>
       <IndexRoute component={Us}/>
       <Route path="big-day" component={BigDay}/>
       <Route path="rsvp" component={Rsvp}/>

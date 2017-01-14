@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Image, PageHeader } from 'react-bootstrap';
-import SiteBar from './SiteBar';
 import us from './assets/private/us.jpg';
 
 import './Us.css';

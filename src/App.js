@@ -1,16 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Navbar, NavItem, Nav, Image, PageHeader } from 'react-bootstrap';
+import {LinkContainer, IndexLinkContainer} from 'react-router-bootstrap';
+import logo from './assets/logo.png';
+
 import './App.css';
 
 class App extends Component {
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
+      <div>
+      <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=La+Belle+Aurore" />
+      <div className="App-header-container" id="app-page-header">Anne & Pierre </div>
+      <div>
+        <Navbar className="navbar-form">
+          <Navbar.Header>
+            <Navbar.Brand>
+              <Image src={logo} href="/"/>
+            </Navbar.Brand>
+          </Navbar.Header>
+          <Nav>
+            <IndexLinkContainer to="/">
+              <NavItem eventKey={1}>Anne & Pierre</NavItem>
+            </IndexLinkContainer>
+            <LinkContainer to="/big-day">
+              <NavItem eventKey={2}>Le Grand Jour</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/rsvp">
+              <NavItem eventKey={3}>Confirmer Ma Venue</NavItem>            
+            </LinkContainer>
+          </Nav>
+        </Navbar>
         {this.props.children}
+      </div>
       </div>
     );
   }
