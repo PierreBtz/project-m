@@ -6,7 +6,7 @@
   },
   "proxies": {
     "/api/rsvp/": {
-      "origin": "https://project-m-backend-deployment.herokuapp.com/rsvp"
+      "origin": "https://project-m-backend-deployment.herokuapp.com/api/rsvp"
     }
   }
 }
