@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Us from './Us';
 import BigDay from './BigDay';
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import './index.css';
 import SiteBar from './SiteBar';
 import Rsvp from './Rsvp';
@@ -10,15 +10,11 @@ import Rsvp from './Rsvp';
 import './bootstrap/css/bootstrap.css';
 import './bootstrap/css/bootstrap-theme.css';
 
-// look for a better fix to redirect the root.
-if(browserHistory.getCurrentLocation().pathname === '/') {
-  browserHistory.push('/us');
-}
 
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={SiteBar}>
-      <Route path="us" component={Us}/>
+      <IndexRoute component={Us}/>
       <Route path="big-day" component={BigDay}/>
       <Route path="rsvp" component={Rsvp}/>
     </Route>

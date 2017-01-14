@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Navbar, NavItem, Nav, Image, PageHeader } from 'react-bootstrap';
+import {LinkContainer, IndexLinkContainer} from 'react-router-bootstrap';
 import logo from './assets/logo.png';
 
 import './SiteBar.css';
 
 class SiteBar extends Component {
+
   render() {
     return (
       <div>
@@ -18,9 +20,15 @@ class SiteBar extends Component {
             </Navbar.Brand>
           </Navbar.Header>
           <Nav>
-            <NavItem eventKey={1} href="us">Anne & Pierre</NavItem>
-            <NavItem eventKey={2} href="big-day">Le Grand Jour</NavItem>
-            <NavItem eventKey={3} href="rsvp">Confirmer Ma Venue</NavItem>            
+            <IndexLinkContainer to="/">
+              <NavItem eventKey={1}>Anne & Pierre</NavItem>
+            </IndexLinkContainer>
+            <LinkContainer to="/big-day">
+              <NavItem eventKey={2}>Le Grand Jour</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/rsvp">
+              <NavItem eventKey={3}>Confirmer Ma Venue</NavItem>            
+            </LinkContainer>
           </Nav>
         </Navbar>
         {this.props.children}
