@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import { FormGroup, FormControl, Button, Form, ControlLabel, Col, Checkbox, Grid, ButtonGroup } from 'react-bootstrap';
+import { FormGroup, FormControl, Button, Form, ControlLabel, Col, Grid, ButtonGroup } from 'react-bootstrap';
 
 class Rsvp extends Component {
 

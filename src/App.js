@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavItem, Nav, Image, PageHeader } from 'react-bootstrap';
+import { Navbar, NavItem, Nav, Image } from 'react-bootstrap';
 import {LinkContainer, IndexLinkContainer} from 'react-router-bootstrap';
 import logo from './assets/logo.png';
 

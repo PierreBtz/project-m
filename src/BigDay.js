@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col, PageHeader, FormGroup, FormControl, ControlLabel, Panel, Media, Label } from 'react-bootstrap';
+import { Grid, Row, Col, PageHeader, Media } from 'react-bootstrap';
 import WeddingMap from './WeddingMap';
 import church from './assets/private/church.png';
 import cityhall from './assets/private/cityhall.png';
