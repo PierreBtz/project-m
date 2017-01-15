@@ -12,7 +12,8 @@ class BigDay extends Component {
       <div>
           <Grid>
             <Row>
-              <PageHeader>Programme de la journée</PageHeader>
+              <Col  md={6}>
+              <PageHeader>La journée</PageHeader>
               <Media>
                 <Media.Left>
                   <img width={128} height={128} src={church} alt="Mairie Goutrens"/>
@@ -49,15 +50,14 @@ class BigDay extends Component {
                     Rajouter blabla pratique + adresse
                 </Media.Body>
               </Media>
-            </Row>
-            <Row>
+              </Col>
+              <Col  md={6}>
             <PageHeader>Les lieux</PageHeader>
-              <Col>
                 <div style={{height: "450px"}}>
                 <WeddingMap/>
                 </div>
               </Col>
-            </Row>
+            </Row>                      
           </Grid>
       </div>
     );
