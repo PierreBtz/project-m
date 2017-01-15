@@ -5,3 +5,7 @@ body {
   padding-top: 15px;
   background: url('./assets/background.jpg');
 }
+
+html {
+  overflow-y: scroll;
+}
