@@ -8,17 +8,13 @@ class Us extends Component {
   render() {
     return (
       <div>
-          <Grid >
+          <Grid>
             <Row>
-              <Col>
-                <Image responsive src={us} thumbnail />
-              </Col>
+                <PageHeader>L'histoire commence le 6 juin 2014...</PageHeader>
+                Blalbalblablablalbl
             </Row>
             <Row>
-              <Col>
-                <PageHeader className="Us-header">L'histoire commence le 6 juin 2014...</PageHeader>
-                Blalbalblablablalbl
-              </Col>
+                <Image responsive src={us} thumbnail />
             </Row>
           </Grid>
       </div>

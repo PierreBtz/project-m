@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 import { FormGroup, FormControl, Button, Form, ControlLabel, Col, Grid, ButtonGroup } from 'react-bootstrap';
 
+import './Rsvp.css';
+
 class Rsvp extends Component {
 
     onSubmit(event) {
@@ -49,7 +51,7 @@ class Rsvp extends Component {
         return (
             <div>
                 <Grid >
-                    <Form horizontal onSubmit={this.onSubmit.bind(this)}>
+                    <Form horizontal onSubmit={this.onSubmit.bind(this)} className="Rsvp-form">
                         <FormGroup controlId="rsvpFirstName">
                             <Col componentClass={ControlLabel} sm={2}>
                                 Prénom

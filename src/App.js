@@ -12,7 +12,7 @@ class App extends Component {
       <div>
       <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=La+Belle+Aurore" />
       <div className="App-header-container" id="app-page-header">Anne & Pierre </div>
-      <div>
+      <div id="app-navbar">
         <Navbar className="navbar-form">
           <Navbar.Header>
             <Navbar.Brand>
@@ -31,8 +31,8 @@ class App extends Component {
             </LinkContainer>
           </Nav>
         </Navbar>
-        {this.props.children}
       </div>
+      {this.props.children}
       </div>
     );
   }

@@ -10,7 +10,7 @@ class BigDay extends Component {
   render() {
     return (
       <div>
-          <Grid >
+          <Grid>
             <Row>
               <PageHeader>Programme de la journée</PageHeader>
               <Media>
