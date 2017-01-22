@@ -20,4 +20,12 @@
     clear: both;
 }
 
+.normal-scale {
+    transform: scale(1);
+}
+
+.hover-scale {
+    transform: scale(1.3);
+}
+
 /* end clearfix*/
