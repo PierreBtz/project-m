@@ -25,7 +25,7 @@ class BigDay extends Component {
     // As es6 imports are statics, I cannot dynamically load my image from a path in the json. Using this map instead.
     const imageMapping = {
       "church": church,
-      "cityHall": cityhall,
+      "cityhall": cityhall,
       "lascanals": lascanals,
       "brunch": brunch
     };
