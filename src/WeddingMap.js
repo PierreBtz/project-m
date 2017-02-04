@@ -8,8 +8,6 @@ import weddingMapStyle from './WeddingMapStyle.json';
 import secret from './private/secret-config.json';
 import location from './private/location.json';
 
-import { NO_LOCATION } from './actions/actions';
-
 class WeddingMap extends Component {
 
   static defaultProps = {
