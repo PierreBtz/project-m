@@ -11,6 +11,7 @@ import brunch from './assets/private/brunch.png';
 import location from './private/location.json';
 
 import LocationMedia from './LocationMedia';
+import VisibleLocationMedia from './VisibleLocationMedia';
 
 class BigDay extends Component {
 
@@ -31,11 +32,12 @@ class BigDay extends Component {
     const ControlledWeddingMap = controllable(WeddingMap, ['markerHover']);
     const ControlledLocationMedia = controllable(LocationMedia, ['hover']);
     const locationMedias = location.locations
-      .map(loc => <ControlledLocationMedia 
+      .map(loc => <VisibleLocationMedia 
                     src={imageMapping[loc.list.imageName]} 
                     alt={loc.list.displayName} 
                     header={loc.list.header} 
                     body={loc.list.body}
+                    mapName={loc.map.displayName}
                     onHoverChange={this.hoverChangedOnList}/>);
     return (
       <div>
@@ -48,7 +50,7 @@ class BigDay extends Component {
               <Col md={6}>
             <PageHeader>Les lieux</PageHeader>
                 <div style={{height: "450px"}}>
-                  <ControlledWeddingMap onMarkerHoverChange={ this.hoverChangedOnMap }/>
+                  <WeddingMap/>
                 </div>
               </Col>
             </Row>                      

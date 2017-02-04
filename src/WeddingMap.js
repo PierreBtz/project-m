@@ -2,11 +2,13 @@ import React, {Component, PropTypes} from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
 import GoogleMap from 'google-map-react';
-import WeddingPlace from './WeddingLocator.js';
+import VisibleWeddingLocator from './VisibleWeddingLocator.js';
 import weddingMapStyle from './WeddingMapStyle.json';
 
 import secret from './private/secret-config.json';
 import location from './private/location.json';
+
+import { NO_LOCATION } from './actions/actions';
 
 class WeddingMap extends Component {
 
@@ -28,19 +30,6 @@ class WeddingMap extends Component {
     }
   }
 
-
-  _onChildMouseEnter(key) {
-    if(this.props.onMarkerHoverChange) {
-      this.props.onMarkerHoverChange(key);
-    }
-  }
-
-  _onChildMouseLeave() {
-    if (this.props.onMarkerHoverChange) {
-      this.props.onMarkerHoverChange(-1);         
-    }
-  }
-
   filterByDisplayName(location) {
     const seen = new Set();
     return location.filter(loc => {
@@ -51,7 +40,7 @@ class WeddingMap extends Component {
 
   render() {
     const weddingPlaces = this.filterByDisplayName(location.locations)
-      .map(loc => <WeddingPlace 
+      .map(loc => <VisibleWeddingLocator 
                     lat={loc.map.location.lat} 
                     lng={loc.map.location.lng} 
                     text={loc.map.displayName} />
@@ -62,9 +51,7 @@ class WeddingMap extends Component {
         bootstrapURLKeys={secret}
         defaultCenter={this.props.center}
         defaultZoom={12}
-        options={this.mapOptions}
-        onChildMouseEnter={this._onChildMouseEnter.bind(this)}
-        onChildMouseLeave={this._onChildMouseLeave.bind(this)}>
+        options={this.mapOptions}>
         {weddingPlaces}
       </GoogleMap>
     );
@@ -72,7 +59,7 @@ class WeddingMap extends Component {
 }
 
 WeddingMap.propTypes = {
-  onMarkerHoverChange: PropTypes.func
+  onMarkerHoverChange: PropTypes.func.isRequired
 }
 
 export default WeddingMap;
