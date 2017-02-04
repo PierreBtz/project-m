@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 
 import GoogleMap from 'google-map-react';
 import VisibleWeddingLocator from './VisibleWeddingLocator.js';
@@ -13,9 +12,6 @@ class WeddingMap extends Component {
   static defaultProps = {
     center: { lat: location.center.lat, lng: location.center.lng }
   };
-
-  // investigate this
-  shouldComponentUpdate = shouldPureComponentUpdate;
 
   mapOptions(maps) {
 

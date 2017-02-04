@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 
 import logo from './assets/logo.png';
 import './WeddingLocator.css';
@@ -10,8 +9,6 @@ class WeddingLocator extends Component {
   static propTypes = {
     text: PropTypes.string
   };
-
-  shouldComponentUpdate = shouldPureComponentUpdate;
 
   static defaultProps = {};
 
