@@ -1,6 +1,6 @@
 import controllable from 'react-controllables';
 import React, { Component } from 'react';
-import { Grid, Row, Col, PageHeader, Media } from 'react-bootstrap';
+import { Grid, Row, Col, PageHeader } from 'react-bootstrap';
 import WeddingMap from './WeddingMap';
 
 import church from './assets/private/church.png';
@@ -31,8 +31,8 @@ class BigDay extends Component {
     const ControlledWeddingMap = controllable(WeddingMap, ['markerHover']);
     const ControlledLocationMedia = controllable(LocationMedia, ['hover']);
     const locationMedias = location.locations
-      .map(loc => <LocationMedia 
-                    src= {imageMapping[loc.list.imageName]} 
+      .map(loc => <ControlledLocationMedia 
+                    src={imageMapping[loc.list.imageName]} 
                     alt={loc.list.displayName} 
                     header={loc.list.header} 
                     body={loc.list.body}

@@ -10,10 +10,6 @@ import location from './private/location.json';
 
 class WeddingMap extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   static defaultProps = {
       center: {lat: location.center.lat, lng: location.center.lng}
     };

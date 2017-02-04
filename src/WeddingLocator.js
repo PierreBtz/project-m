@@ -20,7 +20,7 @@ class WeddingLocator extends Component {
   render() {
     const style = `clearfix float-my-children ${this.props.$hover ? 'hover-scale' : 'normal-scale'}`;
     return (
-      <div className = {style}>
+      <div className={style}>
         <img width={32} height={32} src={logo} alt="logo"/>
         <div>{this.props.text}</div>
       </div>

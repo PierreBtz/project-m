@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col, Image, PageHeader } from 'react-bootstrap';
+import { Grid, Row, Image, PageHeader } from 'react-bootstrap';
 import us from './assets/private/us.jpg';
 
 import './Us.css';

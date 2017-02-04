@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col, PageHeader, Media } from 'react-bootstrap';
+import { Media } from 'react-bootstrap';
 
 class LocationMedia extends Component {
-
-  constructor(props) {
-    super(props);
-  }
 
   handleHoverOn() {
 
