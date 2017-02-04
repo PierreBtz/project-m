@@ -16,14 +16,14 @@ class WeddingLocator extends Component {
   static defaultProps = {};
 
   handleMouseOver() {
-    if(this.props.onMarkerHoverChange) {
-      this.props.onMarkerHoverChange(this.props.text); 
+    if (this.props.onMarkerHoverChange) {
+      this.props.onMarkerHoverChange(this.props.text);
     }
   }
 
   handleMouseOut() {
-    if(this.props.onMarkerHoverChange) {
-      this.props.onMarkerHoverChange(NO_LOCATION); 
+    if (this.props.onMarkerHoverChange) {
+      this.props.onMarkerHoverChange(NO_LOCATION);
     }
   }
 
@@ -42,7 +42,6 @@ class WeddingLocator extends Component {
 }
 
 WeddingLocator.propTypes = {
-  onLocatorHoverChange: PropTypes.func.isRequired,
   locationHovered: PropTypes.string
 }
 

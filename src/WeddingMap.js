@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
 import GoogleMap from 'google-map-react';
@@ -11,8 +11,8 @@ import location from './private/location.json';
 class WeddingMap extends Component {
 
   static defaultProps = {
-      center: {lat: location.center.lat, lng: location.center.lng}
-    };
+    center: { lat: location.center.lat, lng: location.center.lng }
+  };
 
   // investigate this
   shouldComponentUpdate = shouldPureComponentUpdate;
@@ -31,21 +31,22 @@ class WeddingMap extends Component {
   filterByDisplayName(location) {
     const seen = new Set();
     return location.filter(loc => {
-        const current = loc.map.displayName;
-        return seen.has(current) ? false : seen.add(current);
+      const current = loc.map.displayName;
+      return seen.has(current) ? false : seen.add(current);
     });
   }
 
   render() {
     const weddingPlaces = this.filterByDisplayName(location.locations)
-      .map(loc => <VisibleWeddingLocator 
-                    lat={loc.map.location.lat} 
-                    lng={loc.map.location.lng} 
-                    text={loc.map.displayName} />
+      .map((loc, index) => <VisibleWeddingLocator
+        key={index}
+        lat={loc.map.location.lat}
+        lng={loc.map.location.lng}
+        text={loc.map.displayName} />
 
       );
     return (
-       <GoogleMap
+      <GoogleMap
         bootstrapURLKeys={secret}
         defaultCenter={this.props.center}
         defaultZoom={12}
@@ -54,10 +55,6 @@ class WeddingMap extends Component {
       </GoogleMap>
     );
   }
-}
-
-WeddingMap.propTypes = {
-  onMarkerHoverChange: PropTypes.func.isRequired
 }
 
 export default WeddingMap;

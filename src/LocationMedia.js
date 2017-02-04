@@ -18,23 +18,28 @@ class LocationMedia extends Component {
     }
   }
 
+/* eslint-disable jsx-a11y/img-has-alt */
   render() {
+    const {header, body, locationHovered, mapName, ...rest} = this.props;
+    const imageProps = Object.assign({}, rest);
+    delete imageProps.onHoverChange;
     return (
       <div
         onMouseOver={this.handleMouseOver.bind(this)}
         onMouseOut={this.handleMouseOut.bind(this)}>
-        <Media className={'location-media ' + (this.props.locationHovered === this.props.mapName ? 'location-media-selected' : '')}>
+        <Media className={'location-media ' + (locationHovered === mapName ? 'location-media-selected' : '')}>
           <Media.Left>
-            <img width={128} height={128} {...this.props} />
+            <img width={128} height={128} {...imageProps} />
           </Media.Left>
           <Media.Body>
-            <Media.Heading>{this.props.header}</Media.Heading>
-            {this.props.body}
+            <Media.Heading>{header}</Media.Heading>
+            {body}
           </Media.Body>
         </Media>
       </div>
     )
   }
+  /* eslint-enable jsx-a11y/img-has-alt */
 }
 
 LocationMedia.propTypes = {

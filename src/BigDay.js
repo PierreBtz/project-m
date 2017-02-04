@@ -28,7 +28,8 @@ class BigDay extends Component {
       "brunch": brunch
     };
     const locationMedias = location.locations
-      .map(loc => <VisibleLocationMedia
+      .map((loc,index) => <VisibleLocationMedia
+        key={index}
         src={imageMapping[loc.list.imageName]}
         alt={loc.list.displayName}
         header={loc.list.header}
