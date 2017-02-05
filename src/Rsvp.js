@@ -27,10 +27,7 @@ class Rsvp extends Component {
 
     buildUrl(formData) {
         return Object.keys(formData)
-        // no lambda support yet :(
-            .map(function (key) {
-                return encodeURIComponent(key) + "=" + encodeURIComponent(formData[key]);
-            })
+            .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(formData[key]))
             .join('&');
     }
 
