@@ -6,6 +6,8 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import './index.css';
 import App from './App';
 import Rsvp from './Rsvp';
+import Accommodation from './Accommodation';
+import ContactUs from './ContactUs';
 
 import './bootstrap/css/bootstrap.css';
 import './bootstrap/css/bootstrap-theme.css';
@@ -23,6 +25,8 @@ ReactDOM.render((
         <IndexRoute component={Us} />
         <Route path="big-day" component={BigDay} />
         <Route path="rsvp" component={Rsvp} />
+        <Route path="accommodation" component={Accommodation} />
+        <Route path="contactUs" component={ContactUs} />   
       </Route>
     </Router>
   </Provider>

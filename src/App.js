@@ -29,6 +29,12 @@ class App extends Component {
             <LinkContainer to="/rsvp">
               <NavItem eventKey={3}>Confirmer Ma Venue</NavItem>            
             </LinkContainer>
+            <LinkContainer to="/accommodation">
+              <NavItem eventKey={4}>Hébergement</NavItem>            
+            </LinkContainer>
+            <LinkContainer to="/contactUs">
+              <NavItem eventKey={5}>Contactez Nous</NavItem>            
+            </LinkContainer>
           </Nav>
         </Navbar>
       </div>
