@@ -23,6 +23,7 @@ class LocationMedia extends Component {
     const {header, body, locationHovered, mapName, ...rest} = this.props;
     const imageProps = Object.assign({}, rest);
     delete imageProps.onHoverChange;
+    const html = {__html: body};
     return (
       <div
         onMouseOver={this.handleMouseOver.bind(this)}
@@ -33,7 +34,7 @@ class LocationMedia extends Component {
           </Media.Left>
           <Media.Body>
             <Media.Heading>{header}</Media.Heading>
-            {body}
+              <div dangerouslySetInnerHTML={html} />
           </Media.Body>
         </Media>
       </div>
