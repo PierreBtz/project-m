@@ -1415,8 +1415,11 @@ a.bg-danger:focus {
 }
 .page-header {
   padding-bottom: 19px;
-  margin: 80px 0 40px;
+  margin: 40px 0 20px;
   border-bottom: 1px solid #eeeeee;
+}
+.page-header h1 {
+  font-size: 40px;
 }
 ul,
 ol {
@@ -5202,13 +5205,9 @@ a.thumbnail.active {
 .media {
   margin-top: 15px;
 }
-.media:first-child {
-  margin-top: 0;
-}
 .media,
 .media-body {
   zoom: 1;
-  overflow: hidden;
 }
 .media-body {
   width: 10000px;
