@@ -25,7 +25,7 @@ deploy:
   provider: heroku
   api_key:
     secure: Q0Djyi2SOrxkkoPNbmTKM93hgzCtKxRUR3QPoRzW8/AlOH2MS4kgIAleVgn/qZMGR5XcT0SD1ZStpwffb6uHLoEfYXAbygxYHHYwCiEeK/3GyHiggbEDtCN5hCmr/6UUXIHlefusBEVY6cBu4n1hkBhCTtgb8KonNnLscgJDfovCU3yex99rbv5WYVgoZov2/CWiwQJ9QiQTNVwBtFPDJoLC7i32ZqcDfNnb1Afgi2pAxrD3/lB0MB/2BjI5djgqwX+GkBpFQHuvjphUpup4mwPamryZzugO8ouQHVUDM5e225+hjwM+mZ4KAp93zAQQWiO7AFmwsWIx3+f/ofzTXuKZ8bk1+KOy9eI3aNvR6avbkhTNnnyQKfj9/Ljay4LLjYSgkWUknDj72+qxgXe9ZioTJFCYQMH6pnLrLTMl8RbTNWvKgmptqzlmB6lQWnyxmFfPV1H2wzRbX7IlUKxNTsX8MZFsx9ABBL7MKzqFvmuIfvdJZdWFv63M9sPaw8ah70B6wKtqsjV2YJwUK5xm5+hiGZr1xf3/7f/E7xgUqAdW/gS+t7JrpLmft/X6cKqg5OpRM24j/E3rzFdsNQG2ZMoSTgxLB5rpJAuIqHt5VqHnQelAOMN9VAKWcDRB8R5aWgq7qQtBMMjlqI1PklqrIVjObolmZNzXv12VxzNdL7I=
-  app: project-m-deployment
+  app: project-m-front-end
   skip_cleanup: true
   on:
     repo: PierreBtz/project-m
