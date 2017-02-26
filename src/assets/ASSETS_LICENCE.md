@@ -1,5 +1,6 @@
-background.jpg  https://pixabay.com/en/carton-background-paper-874327/    CC0 Public Domain
-logo.png        http://www.flaticon.com/free-icon/heart-and-arrow_68410   Icon made by Freepik from www.flaticon.com
+background.jpg  https://pixabay.com/en/carton-background-paper-874327/                  CC0 Public Domain
+logo.png        http://www.flaticon.com/free-icon/heart-and-arrow_68410                 Icon made by Freepik from www.flaticon.com
+tent.png        https://pixabay.com/fr/camp-ic%C3%B4ne-voyage-design-camping-1849133/   CC0 Public Domain
 
 
 Crediting:
