@@ -2,3 +2,7 @@
   background-color: #333333;
   color:#d3c69c;
 }
+
+ .location-media-selected a {
+    color: #ffffff;
+  }
