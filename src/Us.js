@@ -10,21 +10,16 @@ class Us extends Component {
       <div>
         <Grid>
           <Row>
-            <PageHeader>Bienvenue sur le site de notre mariage!</PageHeader>
+            <PageHeader>Bienvenue sur notre site de mariage!</PageHeader>
           </Row>
           <Row>
-            <Col md={6}>
-              <Image responsive src={us} thumbnail />
-            </Col>
-            <Col md={6}>
-              Vous trouverez ici tous les détails pratiques dont vous aurez besoin:
-                <ListGroup>
-                <ListGroupItem header="Le Grand Jour" href="big-day">L'Agenda du Mariage</ListGroupItem>
-                <ListGroupItem header="Confirmer Ma Venue" href="rsvp">Pour nous aider à préparer au mieux ce jour, merci de nous répondre.</ListGroupItem>
-                <ListGroupItem header="Hébergement" >TODO</ListGroupItem>
-              </ListGroup>
-            </Col>
+            Vous trouverez ici de quoi confirmer votre venue, nous contacter et des détails pratiques pour que ce grand jour
+            se déroule au mieux!
           </Row>
+          <Row>
+            <Image responsive src={us} thumbnail />
+          </Row>
+
         </Grid>
       </div>
     );
