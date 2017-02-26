@@ -13,5 +13,5 @@ build
 npm-debug.log
 
 # private parts
-src/assets/private
 src/private
+private.tar

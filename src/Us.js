@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Row, Image, PageHeader, ListGroup, ListGroupItem, Col } from 'react-bootstrap';
-import us from './assets/private/us.jpg';
+import us from './private/assets/us.jpg';
 
 import './Us.css';
 

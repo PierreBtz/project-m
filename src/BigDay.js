@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Grid, Row, Col, PageHeader } from 'react-bootstrap';
 import WeddingMap from './WeddingMap';
 
-import church from './assets/private/church.png';
-import cityhall from './assets/private/cityhall.png';
-import lascanals from './assets/private/lascanals.jpg';
-import brunch from './assets/private/brunch.png';
+import church from './private/assets/church.png';
+import cityhall from './private/assets/cityhall.png';
+import lascanals from './private/assets/lascanals.jpg';
+import brunch from './private/assets/brunch.png';
 
 import location from './private/location.json';
 
