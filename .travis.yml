@@ -3,8 +3,8 @@ node_js:
 - 6
 before_install:
 - openssl aes-256-cbc -K $encrypted_a259f50740b9_key -iv $encrypted_a259f50740b9_iv
-  -in private.tar.enc -out private.tar -d
-- tar xvf private.tar
+  -in src/private.tar.enc -out src/private.tar -d
+- tar xvf src/private.tar -C src
 install:
 - npm install
 - npm run build
