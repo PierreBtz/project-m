@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 import {
-    FormGroup, FormControl, Button, Form, ControlLabel, Col, Grid, ButtonGroup, Modal
+    FormGroup, FormControl, Button, Form, ControlLabel, Col, Grid, ButtonGroup, Modal, Checkbox
 } from 'react-bootstrap';
 
 import './Rsvp.css';
@@ -16,6 +16,7 @@ class Rsvp extends Component {
             lastNameValidationState: null,
             emailValidationState: null,
             tokenValidationState: null,
+            presenceValidationState: null,
             showModal: false,
             resultMessageTitle: null,
             resultMessageBody: null,
@@ -43,7 +44,9 @@ class Rsvp extends Component {
             firstName: ReactDOM.findDOMNode(this.refs.firstName).value,
             lastName: ReactDOM.findDOMNode(this.refs.lastName).value,
             email: ReactDOM.findDOMNode(this.refs.email).value,
-            present: ReactDOM.findDOMNode(this.refs.present).value,
+            presentDinner: ReactDOM.findDOMNode(this.refs.presentDinner).querySelector('input').checked,
+            presentBrunch: ReactDOM.findDOMNode(this.refs.presentBrunch).querySelector('input').checked,
+            absent: ReactDOM.findDOMNode(this.refs.absent).querySelector('input').checked,
             adultCount: ReactDOM.findDOMNode(this.refs.adultCount).value,
             childCount: ReactDOM.findDOMNode(this.refs.childCount).value
         };
@@ -66,7 +69,7 @@ class Rsvp extends Component {
                 const responseCode = event.currentTarget.status;
                 this.prepareModal(responseCode);
                 this.setState({showModal: true, isSending: false});
-                if(responseCode === 200) {
+                if (responseCode === 200) {
                     this.resetForm();
                 }
             }
@@ -147,17 +150,19 @@ class Rsvp extends Component {
                                              placeholder="Le code inscrit dans votre faire part"/>
                             </Col>
                         </FormGroup>
-                        <FormGroup controlId="rsvpPresence">
-                            <Col componentClass={ControlLabel} sm={2}/>
-                            <Col sm={3}>
-                                <input ref="present" type="radio" name="radioButtonSet" value='true' defaultChecked/>
-                                <ControlLabel>Je serai présent</ControlLabel>
-                            </Col>
-                            <Col sm={3}>
-                                <input type="radio" name="radioButtonSet" value='absent'/>
-                                <ControlLabel>Je ne pourrai pas être là</ControlLabel>
-                            </Col>
-                        </FormGroup>
+                        <Col xsOffset={2}>
+                            <FormGroup controlId="rsvpPresence" validationState={this.state.presenceValidationState}>
+                                <Checkbox ref="presentDinner" controlId="rsvpPresenceDinner">
+                                    Je serai présent le jour J.
+                                </Checkbox>
+                                <Checkbox ref="presentBrunch" controlId="rsvpPresenceBrunch">
+                                    Je serai présent le lendemain au brunch.
+                                </Checkbox>
+                                <Checkbox ref="absent" controlId="rsvpAbsence">
+                                    Je ne pourrai pas être présent.
+                                </Checkbox>
+                            </FormGroup>
+                        </Col>
                         <FormGroup controlId="rsvpPeopleCount">
                             <Col componentClass={ControlLabel} sm={2}/>
                             <Col sm={3}>
@@ -215,13 +220,21 @@ class Rsvp extends Component {
         const isLastNameValid = formData.lastName && formData.lastName !== '';
         const isEmailValid = formData.email && formData.email !== '';
         const isTokenValid = formData.token && formData.token !== '';
+        const isPresenceValid = Rsvp.computePresenceValid(formData);
+
         this.setState({
             firstNameValidationState: isFirstNameValid ? null : 'error',
             lastNameValidationState: isLastNameValid ? null : 'error',
             emailValidationState: isEmailValid ? null : 'error',
-            tokenValidationState: isTokenValid ? null : 'error'
+            tokenValidationState: isTokenValid ? null : 'error',
+            presenceValidationState: isPresenceValid ? null : 'error'
         });
-        return isFirstNameValid && isLastNameValid && isEmailValid && isTokenValid;
+        return isFirstNameValid && isLastNameValid && isEmailValid && isTokenValid && isPresenceValid;
+    }
+
+    static computePresenceValid(formData) {
+        return !formData.absent && formData.presentDinner ||
+            formData.absent && !formData.presentDinner && !formData.presentBrunch;
     }
 
     resetForm() {
