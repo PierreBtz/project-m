@@ -1,15 +1,25 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-import { FormGroup, FormControl, Button, Form, ControlLabel, Col, Grid, ButtonGroup } from 'react-bootstrap';
+import {FormGroup, FormControl, Button, Form, ControlLabel, Col, Grid, ButtonGroup} from 'react-bootstrap';
 
 import './Rsvp.css';
 
 class Rsvp extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            firstNameValidationState: null,
+            lastNameValidationState: null,
+            emailValidationState: null,
+            tokenValidationState: null
+        }
+    }
+
     onSubmit(event) {
         event.preventDefault();
-        this.setState({ type: 'info', message: 'Sending...' }, this.sendForm.bind(this));
+        this.setState({type: 'info', message: 'Sending...'}, this.sendForm.bind(this));
     }
 
     fetchData() {
@@ -41,6 +51,7 @@ class Rsvp extends Component {
 
     sendForm() {
         const formData = this.fetchData();
+        this.isValid(formData);
         this.sendData(formData);
     }
 
@@ -48,55 +59,61 @@ class Rsvp extends Component {
         return (
             <div>
                 <Grid >
-                    <Form horizontal onSubmit={this.onSubmit.bind(this)} className="Rsvp-form">
-                        <FormGroup controlId="rsvpFirstName">
+                    <Form horizontal
+                          onSubmit={this.onSubmit.bind(this)}
+                          className="Rsvp-form">
+                        <FormGroup controlId="rsvpFirstName" validationState={this.state.firstNameValidationState}>
                             <Col componentClass={ControlLabel} sm={2}>
                                 Prénom
                             </Col>
                             <Col sm={6}>
-                                <FormControl ref="firstName" type="text" placeholder="Votre Prénom" />
+                                <FormControl ref="firstName"
+                                             type="text"
+                                             placeholder="Votre Prénom"/>
                             </Col>
                         </FormGroup>
-                        <FormGroup controlId="rsvpLastName">
+                        <FormGroup controlId="rsvpLastName" validationState={this.state.lastNameValidationState}>
                             <Col componentClass={ControlLabel} sm={2}>
                                 Nom
                             </Col>
                             <Col sm={6}>
-                                <FormControl ref="lastName" type="text" placeholder="Votre Nom" />
+                                <FormControl ref="lastName" type="text" placeholder="Votre Nom"/>
                             </Col>
                         </FormGroup>
-                        <FormGroup controlId="rsvpEmail">
+                        <FormGroup controlId="rsvpEmail" validationState={this.state.emailValidationState}>
                             <Col componentClass={ControlLabel} sm={2}>
                                 Email
                             </Col>
                             <Col sm={6}>
-                                <FormControl ref="email" type="email" placeholder="Votre Adresse Email" />
+                                <FormControl ref="email" type="email" placeholder="Votre Adresse Email"/>
                             </Col>
                         </FormGroup>
-                        <FormGroup controlId="rsvpToken">
+                        <FormGroup controlId="rsvpToken" validationState={this.state.tokenValidationState}>
                             <Col componentClass={ControlLabel} sm={2}>
                                 Code de vérification
                             </Col>
                             <Col sm={6}>
-                                <FormControl ref="token" type="text" placeholder="Le code inscrit dans votre faire part" />
+                                <FormControl ref="token" type="text"
+                                             placeholder="Le code inscrit dans votre faire part"/>
                             </Col>
                         </FormGroup>
                         <FormGroup controlId="rsvpPresence">
-                            <Col componentClass={ControlLabel} sm={2} />
+                            <Col componentClass={ControlLabel} sm={2}/>
                             <Col sm={3}>
-                                <input ref="present" type="radio" name="radioButtonSet" value='true' defaultChecked />
+                                <input ref="present" type="radio" name="radioButtonSet" value='true' defaultChecked/>
                                 <ControlLabel>Je serai présent</ControlLabel>
                             </Col>
                             <Col sm={3}>
-                                <input type="radio" name="radioButtonSet" value='absent' />
+                                <input type="radio" name="radioButtonSet" value='absent'/>
                                 <ControlLabel>Je ne pourrai pas être là</ControlLabel>
                             </Col>
                         </FormGroup>
                         <FormGroup controlId="rsvpPeopleCount">
-                            <Col componentClass={ControlLabel} sm={2} />
+                            <Col componentClass={ControlLabel} sm={2}/>
                             <Col sm={3}>
                                 <ControlLabel>Nombre d'adultes</ControlLabel>
-                                <FormControl ref="adultCount" componentClass="select" placeholder="Sélectionnez le nombre d'adultes">
+                                <FormControl ref="adultCount" componentClass="select"
+                                             placeholder="Sélectionnez le nombre d'adultes">
                                     <option value="0">0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -104,7 +121,8 @@ class Rsvp extends Component {
                             </Col>
                             <Col sm={3}>
                                 <ControlLabel>Nombre d'enfants</ControlLabel>
-                                <FormControl ref="childCount" componentClass="select" placeholder="Sélectionnez le nombre d'enfants">
+                                <FormControl ref="childCount" componentClass="select"
+                                             placeholder="Sélectionnez le nombre d'enfants">
                                     <option value="0">0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -113,10 +131,11 @@ class Rsvp extends Component {
                             </Col>
                         </FormGroup>
                         <FormGroup>
-                            <Col componentClass={ControlLabel} sm={2} />
+                            <Col componentClass={ControlLabel} sm={2}/>
                             <Col sm={6}>
                                 <ButtonGroup vertical block>
-                                    <Button className="btn btn-primary btn-large centerButton" type="submit">Envoyer!</Button>
+                                    <Button className="btn btn-primary btn-large centerButton"
+                                            type="submit">Envoyer!</Button>
                                 </ButtonGroup>
                             </Col>
                         </FormGroup>
@@ -124,6 +143,19 @@ class Rsvp extends Component {
                 </Grid>
             </div>
         );
+    }
+
+    isValid(formData) {
+        const isFirstNameValid = formData.firstName && formData.firstName !== '';
+        const isLastNameValid = formData.lastName && formData.lastName !== '';
+        const isEmailValid = formData.email && formData.email !== '';
+        const isTokenValid = formData.token && formData.token !== '';
+        this.setState({
+            firstNameValidationState: isFirstNameValid ? null : 'error',
+            lastNameValidationState: isLastNameValid ? null : 'error',
+            emailValidationState: isEmailValid ? null : 'error',
+            tokenValidationState: isTokenValid ? null : 'error'
+        });
     }
 }
 
