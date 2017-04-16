@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-import {FormGroup, FormControl, Button, Form, ControlLabel, Col, Grid, ButtonGroup} from 'react-bootstrap';
+import {
+    FormGroup, FormControl, Button, Form, ControlLabel, Col, Grid, ButtonGroup, Modal
+} from 'react-bootstrap';
 
 import './Rsvp.css';
 
@@ -13,11 +15,24 @@ class Rsvp extends Component {
             firstNameValidationState: null,
             lastNameValidationState: null,
             emailValidationState: null,
-            tokenValidationState: null
+            tokenValidationState: null,
+            showModal: false,
+            resultMessageTitle: null,
+            resultMessageBody: null,
+            isSending: false
         }
     }
 
+    close() {
+        this.setState({showModal: false});
+    }
+
+    open() {
+        this.setState({showModal: true});
+    }
+
     onSubmit(event) {
+        this.setState({isSending: true});
         event.preventDefault();
         this.setState({type: 'info', message: 'Sending...'}, this.sendForm.bind(this));
     }
@@ -43,16 +58,51 @@ class Rsvp extends Component {
 
     sendData(formData) {
         const xmlhttp = new XMLHttpRequest();
-        // need to make this async
         xmlhttp.open("POST", '/api/rsvp/create', true);
         xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xmlhttp.send(this.buildUrl(formData));
+        xmlhttp.onreadystatechange = event => {
+            if (event.currentTarget.readyState === XMLHttpRequest.DONE) {
+                const responseCode = event.currentTarget.status;
+                this.prepareModal(responseCode);
+                this.setState({showModal: true, isSending: false});
+                if(responseCode === 200) {
+                    this.resetForm();
+                }
+            }
+        };
     }
 
     sendForm() {
         const formData = this.fetchData();
-        this.isValid(formData);
-        this.sendData(formData);
+        if (this.isValid(formData)) {
+            this.sendData(formData);
+        } else {
+            this.prepareModal(0);
+            this.setState({showModal: true, isSending: false});
+        }
+    }
+
+    prepareModal(responseCode) {
+        this.setState({
+            resultMessageTitle: responseCode === 200 ? 'Merci' : 'Oups!',
+            resultMessageBody: responseCode === 200 ? 'Nous avons bien reçu votre réservation!' : Rsvp.getErrorMessage(responseCode)
+        });
+    }
+
+    static getErrorMessage(responseCode) {
+        let message;
+        switch (responseCode) {
+            case 0:
+                message = 'Veuillez remplir les champs en rouge.';
+                break;
+            case 401:
+                message = 'Il semblerait que le code fourni ne soit pas valide. Veuillez vérifier sur votre faire-part.';
+                break;
+            default:
+                message = 'Il semblerait que notre serveur rencontre une erreur. Veuillez réessayer ou nous contacter directement.';
+        }
+        return message;
     }
 
     render() {
@@ -138,12 +188,24 @@ class Rsvp extends Component {
                             <Col sm={6}>
                                 <ButtonGroup vertical block>
                                     <Button className="btn btn-primary btn-large centerButton"
-                                            type="submit">Envoyer!</Button>
+                                            disabled={this.state.isSending}
+                                            type="submit">{this.state.isSending ? 'Envoi en cours...' : 'Envoyer!'}</Button>
                                 </ButtonGroup>
                             </Col>
                         </FormGroup>
                     </Form>
                 </Grid>
+                <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>{this.state.resultMessageTitle}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        {this.state.resultMessageBody}
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button onClick={this.close.bind(this)}>Fermer</Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         );
     }
@@ -159,6 +221,14 @@ class Rsvp extends Component {
             emailValidationState: isEmailValid ? null : 'error',
             tokenValidationState: isTokenValid ? null : 'error'
         });
+        return isFirstNameValid && isLastNameValid && isEmailValid && isTokenValid;
+    }
+
+    resetForm() {
+        ReactDOM.findDOMNode(this.refs.token).value = '';
+        ReactDOM.findDOMNode(this.refs.firstName).value = '';
+        ReactDOM.findDOMNode(this.refs.lastName).value = '';
+        ReactDOM.findDOMNode(this.refs.email).value = '';
     }
 }
 
