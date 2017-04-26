@@ -7,6 +7,10 @@ import weddingMapStyle from './WeddingMapStyle.json';
 import secret from './private/secret-config.json';
 import location from './private/location.json';
 
+// google-map-react needs an es6 Promise polyfill to work on IE11.
+// eslint-disable-next-line
+import { Promise } from 'es6-shim';
+
 class WeddingMap extends Component {
 
   static defaultProps = {
