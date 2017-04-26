@@ -11,14 +11,14 @@ class Accommodation extends Component {
   render() {
     // As es6 imports are statics, I cannot dynamically load my image from a path in the json. Using this map instead.
     const imageMapping = {
-      "tent": tent,
-      "lascanals": lascanals,
+      'tent': tent,
+      'lascanals': lascanals,
     };
     const accomodationMedias = location.accommodations
-      .map((loc, index) => 
+      .map((loc, index) =>
         <Media>
           <Media.Left>
-            <img width={128} height={128} src={imageMapping[loc.imageName]}/>
+            <img width={128} height={128} src={imageMapping[loc.imageName]} role='presentation' />
           </Media.Left>
           <Media.Body>
             <Media.Heading>{loc.header}</Media.Heading>

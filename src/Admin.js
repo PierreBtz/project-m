@@ -8,7 +8,7 @@ class Admin extends Component {
     //given the context, synchronous query is ok
     xmlhttp.open('GET', `/api/rsvp/report/${present ? 'present' : 'absent'}?token=${token}`, false);
     xmlhttp.send();
-    if(xmlhttp.status == 200) {
+    if(xmlhttp.status === 200) {
       return JSON.parse(xmlhttp.responseText);
     }
   }

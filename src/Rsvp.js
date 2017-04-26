@@ -233,8 +233,8 @@ class Rsvp extends Component {
     }
 
     static computePresenceValid(formData) {
-        return !formData.absent && formData.presentDinner ||
-            formData.absent && !formData.presentDinner && !formData.presentBrunch;
+        return (!formData.absent && formData.presentDinner) ||
+            (formData.absent && !formData.presentDinner && !formData.presentBrunch);
     }
 
     resetForm() {
