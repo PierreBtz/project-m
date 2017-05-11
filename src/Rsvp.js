@@ -178,7 +178,7 @@ class Rsvp extends Component {
                                 </FormControl>
                             </Col>
                             <Col sm={3}>
-                                <ControlLabel>Nombre d'enfants</ControlLabel>
+                                <ControlLabel>Nombre d'enfants (- 1O ans)</ControlLabel>
                                 <FormControl ref="childCount" componentClass="select"
                                              placeholder="Sélectionnez le nombre d'enfants">
                                     <option value="0">0</option>
