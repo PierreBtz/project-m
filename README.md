@@ -1,3 +1,14 @@
+# Project M
+
+...or project mariage (french from wedding)... which was my big 2017 project!
+
+This is a simple react website, with some redux (probably not really needed but I wanted to understand a bit more what redux was about).
+
+This website was also using a backend (for RSVP) writen in Spring Boot: [project-m-rsvp-backend](https://github.com/PierreBtz/project-m-rsvp-backend).
+
+The project was automatically built by Travis CI and then deployed using Heroku. It was initially generated using Create React App (see below).
+
+-----
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
